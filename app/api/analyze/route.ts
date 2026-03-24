@@ -57,8 +57,6 @@ export async function POST(req: Request) {
       method: "POST",
       headers: {
         "Authorization": `Bearer ${apiKey}`,
-        "HTTP-Referer": "https://techart-ai.com",
-        "X-Title": "TECHART AI",
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
@@ -80,8 +78,14 @@ export async function POST(req: Request) {
         statusText: response.statusText,
         error: result
       });
+      
+      let errorMessage = result.error?.message || `AI Analysis failed with status ${response.status}`;
+      if (response.status === 401) {
+        errorMessage = 'Your OpenRouter API Key is invalid or has expired. Please check your .env.local or Vercel settings.';
+      }
+      
       return NextResponse.json({ 
-        error: result.error?.message || `AI Analysis failed with status ${response.status}` 
+        error: errorMessage 
       }, { status: response.status });
     }
 
