@@ -152,10 +152,12 @@ async function analyzeTextWithAI(text: string, fileName: string): Promise<Analys
       method: "POST",
       headers: {
         "Authorization": `Bearer ${apiKey}`,
+        "HTTP-Referer": "https://techart-ai.com",
+        "X-Title": "TECHART AI",
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        "model": "google/gemini-2.0-flash-lite-preview-02-05:free",
+        "model": "meta-llama/llama-3.1-8b-instruct:free",
         "messages": [
           {
             "role": "user",
