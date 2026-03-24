@@ -339,7 +339,7 @@
                Recent Reports
              </h3>
              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-               {recentSummaries.map((item, idx) => (
+               {recentSummaries.map((item: any, idx: number) => (
                  <div key={item.id || idx} className="relative group cursor-pointer">
                    <div className="absolute inset-0 bg-slate-800/20 rounded-xl blur-sm group-hover:bg-cyan-500/5 transition-all"></div>
                    <div className="relative p-6 border border-slate-700/50 rounded-xl bg-slate-900/40 hover:border-cyan-500/30 transition-all">
