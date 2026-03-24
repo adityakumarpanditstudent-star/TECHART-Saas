@@ -1,12 +1,12 @@
 'use client';
 
 import { 
-  BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, 
-  PieChart, Pie, Cell, LineChart, Line, AreaChart, Area 
+  CartesianGrid, Tooltip, ResponsiveContainer, 
+  PieChart, Pie, Cell, AreaChart, Area, XAxis, YAxis 
 } from 'recharts';
 import { 
-  TrendingUp, Activity, BarChart3, PieChart as PieChartIcon, 
-  FileText, Lightbulb, CheckCircle2, AlertCircle, Download, Copy, Share2
+  TrendingUp, PieChart as PieChartIcon, 
+  Lightbulb, CheckCircle2, Download, Copy
 } from 'lucide-react';
 
 interface AnalyticalDashboardProps {
