@@ -9,27 +9,27 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.100.0",
+    "@supabase/supabase-js": "^2.49.1",
     "html2canvas": "^1.4.1",
-    "jspdf": "^4.2.1",
-    "lucide-react": "^1.0.1",
+    "jspdf": "^3.0.0",
+    "lucide-react": "^0.477.0",
     "mammoth": "^1.12.0",
     "next": "^15.5.13",
-    "pdfjs-dist": "^5.5.207",
+    "pdfjs-dist": "^4.10.38",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "recharts": "^3.8.0",
+    "recharts": "^2.15.0",
     "xlsx": "^0.18.5"
   },
   "devDependencies": {
-    "@types/node": "^20",
+    "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "autoprefixer": "^10.4.27",
-    "eslint": "^9.0.0",
+    "eslint": "^9.21.0",
     "eslint-config-next": "^15.5.13",
     "postcss": "^8",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.8.2"
   }
 }
