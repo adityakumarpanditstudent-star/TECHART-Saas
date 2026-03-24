@@ -350,7 +350,7 @@
                          <p className="text-xs text-slate-500">{new Date(item.created_at).toLocaleDateString()}</p>
                        </div>
                      </div>
-                     <p className="text-slate-400 text-sm line-clamp-2 italic">"{item.summary}"</p>
+                     <p className="text-slate-400 text-sm line-clamp-2 italic">&quot;{item.summary}&quot;</p>
                    </div>
                  </div>
                ))}
