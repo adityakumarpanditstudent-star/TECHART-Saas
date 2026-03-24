@@ -3,11 +3,14 @@ import { NextResponse } from 'next/server';
 export async function POST(req: Request) {
   try {
     const { text, fileName } = await req.json();
-    const apiKey = process.env.NEXT_PUBLIC_OPENROUTER_API_KEY;
+    const apiKey = process.env.NEXT_PUBLIC_OPENROUTER_API_KEY?.trim();
 
     if (!apiKey || apiKey === 'your_openrouter_api_key') {
+      console.error('API Key Missing in Server Environment');
       return NextResponse.json({ error: 'OpenRouter API key is missing on the server.' }, { status: 500 });
     }
+
+    console.log('Attempting AI Analysis with trimmed key...');
 
     const truncatedText = text.substring(0, 40000);
 
@@ -59,7 +62,7 @@ export async function POST(req: Request) {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        "model": "meta-llama/llama-3.1-8b-instruct:free",
+        "model": "google/gemini-2.0-flash-lite-preview-02-05:free",
         "messages": [
           {
             "role": "user",
@@ -72,8 +75,14 @@ export async function POST(req: Request) {
 
     const result = await response.json();
     if (!response.ok) {
-      console.error('OpenRouter Error:', result);
-      return NextResponse.json({ error: result.error?.message || 'AI Analysis failed' }, { status: response.status });
+      console.error('OpenRouter API Response Error:', {
+        status: response.status,
+        statusText: response.statusText,
+        error: result
+      });
+      return NextResponse.json({ 
+        error: result.error?.message || `AI Analysis failed with status ${response.status}` 
+      }, { status: response.status });
     }
 
     const aiContent = JSON.parse(result.choices[0].message.content);
