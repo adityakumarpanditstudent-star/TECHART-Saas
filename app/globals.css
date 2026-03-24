@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap');
+
+* {
+  font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif;
+}
+
+.drag-area {
+  transition: all 0.3s ease;
+}
+
+.drag-active {
+  border-color: rgba(34, 211, 238, 1) !important;
+  background-color: rgba(30, 41, 59, 0.8) !important;
+}
+
+body {
+  background: linear-gradient(to bottom right, #0f172a, #0f172a);
+  background-attachment: fixed;
+  color: white;
+  min-height: 100-vh;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection color */
+::selection {
+  background-color: rgba(34, 211, 238, 0.3);
+  color: white;
+}
