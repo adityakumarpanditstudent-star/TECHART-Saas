@@ -325,7 +325,7 @@
              > 
                <span className="flex items-center gap-3">
                  ✨ Run Deep Analysis
-                 <span className="text-sm opacity-50 font-normal">Gemini 2.0 Flash Engine</span>
+                 <span className="text-sm opacity-50 font-normal">Nemtron 120B Engine</span>
                </span>
              </button> 
            </section> 
