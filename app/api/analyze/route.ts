@@ -23,7 +23,9 @@ export async function POST(req: Request) {
       2. Insights: Provide 8-10 deep, non-obvious insights extracted from the text. Focus on implications, hidden patterns, or critical data points.
       3. Metrics: Evaluate the document on Readability, Complexity, and Keyword Density (0-100).
       4. Sentiments: Analyze the distribution of Strategic, Technical, Financial, and Operational focus.
-      5. Trends: Map out the logical progression or data trends across 6 distinct sections of the document.
+      5. Trends: Map out the logical progression or data trends across 6 distinct sections of the document. 
+         - "name" should be a short, descriptive label for the section (e.g., "Intro", "Core Analysis", "Conclusion", or specific chapter keywords).
+         - "value" should be a score (0-100) representing the intensity of the document's primary theme in that section.
       
       The response must be a valid JSON object with this structure:
       {
@@ -41,12 +43,12 @@ export async function POST(req: Request) {
           {"name": "Operational", "value": percentage}
         ],
         "trends": [
-          {"name": "Phase 1", "value": score},
-          {"name": "Phase 2", "value": score},
-          {"name": "Phase 3", "value": score},
-          {"name": "Phase 4", "value": score},
-          {"name": "Phase 5", "value": score},
-          {"name": "Phase 6", "value": score}
+          {"name": "Short Section Label", "value": score},
+          {"name": "Short Section Label", "value": score},
+          {"name": "Short Section Label", "value": score},
+          {"name": "Short Section Label", "value": score},
+          {"name": "Short Section Label", "value": score},
+          {"name": "Short Section Label", "value": score}
         ]
       }
       

@@ -117,26 +117,52 @@ export default function AnalyticalDashboard({ data, onDownload, onCopy }: Analyt
 
         {/* Trend Analysis */}
         <div className="backdrop-blur-xl bg-slate-900/40 border border-white/10 rounded-2xl p-6 lg:col-span-2">
-          <div className="flex items-center gap-3 mb-6">
-            <TrendingUp className="text-cyan-400" />
-            <h4 className="text-xl font-semibold text-slate-100">Analytical Trends</h4>
+          <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center gap-3">
+              <TrendingUp className="text-cyan-400" />
+              <h4 className="text-xl font-semibold text-slate-100">Narrative Progression</h4>
+            </div>
+            <span className="text-xs text-slate-500 uppercase tracking-widest">Theme Intensity vs. Section</span>
           </div>
           <div className="h-80">
             <ResponsiveContainer width="100%" height="100%">
-              <AreaChart data={data.trends}>
+              <AreaChart data={data.trends} margin={{ top: 10, right: 30, left: 0, bottom: 20 }}>
                 <defs>
                   <linearGradient id="colorTrend" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="5%" stopColor="#22d3ee" stopOpacity={0.3}/>
                     <stop offset="95%" stopColor="#22d3ee" stopOpacity={0}/>
                   </linearGradient>
                 </defs>
-                <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" />
-                <XAxis dataKey="name" stroke="#64748b" fontSize={12} />
-                <YAxis stroke="#64748b" fontSize={12} />
-                <Tooltip 
-                  contentStyle={{ backgroundColor: '#0f172a', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px' }}
+                <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" vertical={false} />
+                <XAxis 
+                  dataKey="name" 
+                  stroke="#64748b" 
+                  fontSize={11} 
+                  tickLine={false}
+                  axisLine={false}
+                  label={{ value: 'Document Section', position: 'bottom', offset: 0, fill: '#475569', fontSize: 10 }}
                 />
-                <Area type="monotone" dataKey="value" stroke="#22d3ee" fillOpacity={1} fill="url(#colorTrend)" />
+                <YAxis 
+                  stroke="#64748b" 
+                  fontSize={11} 
+                  tickLine={false}
+                  axisLine={false}
+                  label={{ value: 'Intensity (%)', angle: -90, position: 'insideLeft', fill: '#475569', fontSize: 10 }}
+                />
+                <Tooltip 
+                  contentStyle={{ backgroundColor: '#0f172a', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '12px', padding: '12px' }}
+                  itemStyle={{ color: '#22d3ee' }}
+                  cursor={{ stroke: '#22d3ee', strokeWidth: 1 }}
+                />
+                <Area 
+                  type="monotone" 
+                  dataKey="value" 
+                  stroke="#22d3ee" 
+                  strokeWidth={3}
+                  fillOpacity={1} 
+                  fill="url(#colorTrend)" 
+                  animationDuration={1500}
+                />
               </AreaChart>
             </ResponsiveContainer>
           </div>
