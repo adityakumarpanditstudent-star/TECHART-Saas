@@ -102,6 +102,7 @@ async function readText(file: File): Promise<string> {
 
 async function analyzeTextWithAI(text: string, fileName: string): Promise<AnalysisData> {
   const apiKey = process.env.NEXT_PUBLIC_OPENROUTER_API_KEY;
+  console.log('API Key check:', apiKey ? `${apiKey.substring(0, 10)}...` : 'Not Found');
   if (!apiKey || apiKey === 'your_openrouter_api_key') {
     throw new Error('OpenRouter API key is missing. Please check your .env.local file.');
   }
