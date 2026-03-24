@@ -152,12 +152,10 @@ async function analyzeTextWithAI(text: string, fileName: string): Promise<Analys
       method: "POST",
       headers: {
         "Authorization": `Bearer ${apiKey}`,
-        "HTTP-Referer": "https://techart-ai.com",
-        "X-Title": "TECHART AI",
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        "model": "nvidia/nemotron-3-super-120b-a12b:free",
+        "model": "google/gemini-2.0-flash-lite-preview-02-05:free",
         "messages": [
           {
             "role": "user",
